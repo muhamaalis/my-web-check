@@ -1,0 +1,186 @@
+<div class="mx-auto max-w-5xl px-4 py-6">
+  <div class="mb-4 flex items-center justify-between">
+    <h1 class="text-2xl font-semibold">เพิ่มรายการ</h1>
+    <a
+      routerLink="/asset/list"
+      class="inline-flex items-center rounded-xl border border-slate-300 px-3 py-1.5 text-sm text-slate-700 hover:bg-slate-50"
+    >
+      กลับหน้ารายการทรัพย์สิน
+    </a>
+  </div>
+
+  <div class="rounded-2xl border border-slate-200 bg-white p-4 shadow-sm">
+    <div class="grid grid-cols-1 gap-4 md:grid-cols-2">
+      <div>
+        <label class="text-sm text-slate-600">รหัสทรัพย์สิน</label>
+        <input
+          type="text"
+          [(ngModel)]="model.assetCode"
+          class="mt-1 w-full rounded-lg border border-slate-300 bg-white px-3 py-2 text-sm"
+          placeholder="กรอกรหัสทรัพย์สิน"
+        />
+      </div>
+
+      <div>
+        <label class="text-sm text-slate-600">ประเภท</label>
+        <select
+          [(ngModel)]="model.assetType"
+          class="mt-1 w-full rounded-lg border border-slate-300 bg-white px-3 py-2 text-sm"
+        >
+          <option value="">เลือกประเภท</option>
+          <option value="laptop">laptop</option>
+          <option value="mobile phone">mobile phone</option>
+          <option value="mac mini">mac mini</option>
+          <option value="macbook">macbook</option>
+        </select>
+      </div>
+
+      <div>
+        <label class="text-sm text-slate-600">ชื่อทรัพย์สิน</label>
+        <input
+          type="text"
+          [(ngModel)]="model.assetName"
+          class="mt-1 w-full rounded-lg border border-slate-300 bg-white px-3 py-2 text-sm"
+          placeholder="กรอกชื่อทรัพย์สิน"
+        />
+      </div>
+
+      <div>
+        <label class="text-sm text-slate-600">ยี่ห้อ</label>
+        <input
+          type="text"
+          [(ngModel)]="model.brand"
+          class="mt-1 w-full rounded-lg border border-slate-300 bg-white px-3 py-2 text-sm"
+          placeholder="กรอกยี่ห้อ"
+        />
+      </div>
+
+      <div>
+        <label class="text-sm text-slate-600">รุ่น</label>
+        <input
+          type="text"
+          [(ngModel)]="model.modelName"
+          class="mt-1 w-full rounded-lg border border-slate-300 bg-white px-3 py-2 text-sm"
+          placeholder="กรอกรุ่น"
+        />
+      </div>
+
+      <div>
+        <label class="text-sm text-slate-600">สี</label>
+        <input
+          type="text"
+          [(ngModel)]="model.color"
+          class="mt-1 w-full rounded-lg border border-slate-300 bg-white px-3 py-2 text-sm"
+          placeholder="กรอกสี"
+        />
+      </div>
+
+      <div>
+        <label class="text-sm text-slate-600">อุปกรณ์เสริม</label>
+        <div class="mt-1 flex gap-2">
+          <select
+            [(ngModel)]="model.accessory"
+            class="w-full rounded-lg border border-slate-300 bg-white px-3 py-2 text-sm"
+          >
+            <option value="">เลือกอุปกรณ์เสริม</option>
+            <option value="สายชาร์จ">สายชาร์จ</option>
+            <option value="เมาส์">เมาส์</option>
+          </select>
+          <button
+            type="button"
+            class="rounded-lg bg-slate-200 px-3 py-2 text-sm text-slate-700 hover:bg-slate-300"
+            (click)="addAccessoryExtra()"
+          >
+            +
+          </button>
+        </div>
+        <div *ngIf="accessoryExtras.length" class="mt-2 space-y-1">
+          <div
+            *ngFor="let item of accessoryExtras; let i = index"
+            class="flex items-center justify-between rounded border border-slate-200 bg-slate-50 px-2 py-1 text-sm"
+          >
+            <span class="text-slate-700">{{ item }}</span>
+            <button
+              type="button"
+              (click)="removeAccessoryExtra(i)"
+              class="text-xs text-red-600 hover:text-red-700"
+            >
+              ลบ
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div>
+        <label class="text-sm text-slate-600">สถานะ</label>
+        <select
+          [(ngModel)]="model.status"
+          class="mt-1 w-full rounded-lg border border-slate-300 bg-white px-3 py-2 text-sm"
+        >
+          <option value="">เลือกสถานะ</option>
+          <option value="ใช้งาน">ใช้งาน</option>
+          <option value="ว่าง">ว่าง</option>
+          <option value="ชำรุด">ชำรุด</option>
+          <option value="ซ่อม">ซ่อม</option>
+          <option value="รอจำหน่าย">รอจำหน่าย</option>
+          <option value="จำหน่ายแล้ว">จำหน่ายแล้ว</option>
+          <option value="สูญหาย">สูญหาย</option>
+          <option value="ยืม">ยืม</option>
+          <option value="รอตรวจสอบ">รอตรวจสอบ</option>
+          <option value="งดใช้งาน">งดใช้งาน</option>
+        </select>
+      </div>
+
+      <div class="md:col-span-2">
+        <label class="text-sm text-slate-600">ตำหนิ</label>
+        <div class="mt-1 flex gap-2">
+          <input
+            type="text"
+            [(ngModel)]="model.defect"
+            class="w-full rounded-lg border border-slate-300 bg-white px-3 py-2 text-sm"
+            placeholder="กรอกตำหนิ"
+          />
+          <button
+            type="button"
+            class="rounded-lg bg-slate-200 px-3 py-2 text-sm text-slate-700 hover:bg-slate-300"
+            (click)="addDefectExtra()"
+          >
+            +
+          </button>
+        </div>
+        <div *ngIf="defectExtras.length" class="mt-2 space-y-1">
+          <div
+            *ngFor="let item of defectExtras; let i = index"
+            class="flex items-center justify-between rounded border border-slate-200 bg-slate-50 px-2 py-1 text-sm"
+          >
+            <span class="text-slate-700">{{ item }}</span>
+            <button
+              type="button"
+              (click)="removeDefectExtra(i)"
+              class="text-xs text-red-600 hover:text-red-700"
+            >
+              ลบ
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="mt-5 flex gap-3">
+      <button
+        type="button"
+        (click)="onSave()"
+        class="rounded-lg bg-emerald-600 px-4 py-2 text-white font-semibold hover:bg-emerald-700"
+      >
+        บันทึก
+      </button>
+      <button
+        type="button"
+        (click)="onCancel()"
+        class="rounded-lg bg-slate-200 px-4 py-2 text-slate-700 hover:bg-slate-300"
+      >
+        ยกเลิก
+      </button>
+    </div>
+  </div>
+</div>

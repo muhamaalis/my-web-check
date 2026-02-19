@@ -1,0 +1,24 @@
+<div class="min-h-[calc(100vh-64px)] bg-gradient-to-b from-sky-200 via-sky-100 to-slate-100 p-4">
+  <div class="w-full h-full">
+    <div class="rounded-2xl border border-slate-200 bg-white/95 p-8 shadow-md min-h-[calc(100vh-96px)] flex items-center justify-center">
+      <div class="flex flex-col items-center gap-6 w-full -mt-20">
+        <div class="text-center">
+          <h1 class="mt-1 text-2xl sm:text-3xl font-semibold text-slate-800">ศูนย์จัดการทรัพย์สิน</h1>
+          <p class="mt-2 text-sm text-slate-600">เลือกเมนูเพื่อดูรายการทรัพย์สินหรือสร้างรายการยืม</p>
+        </div>
+        <a
+          routerLink="/asset/list"
+          class="w-full max-w-2xl rounded-2xl bg-sky-600 px-6 py-4 text-white text-lg font-semibold shadow hover:bg-sky-700 text-center"
+        >
+          รายการทรัพย์สิน
+        </a>
+        <a
+          routerLink="/check/new"
+          class="w-full max-w-2xl rounded-2xl bg-emerald-600 px-6 py-4 text-white text-lg font-semibold shadow hover:bg-emerald-700 text-center"
+        >
+          สร้างรายการยืม
+        </a>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,88 @@
+<div class="mx-auto max-w-5xl px-4 py-6">
+  <div class="mb-4 flex items-center justify-between">
+    <h1 class="text-lg sm:text-2xl font-semibold whitespace-nowrap">รายการทรัพย์สิน</h1>
+    <div class="flex items-center gap-2">
+      <a
+        routerLink="/"
+        class="rounded-lg border border-slate-300 px-4 py-2 text-sm text-slate-700 hover:bg-slate-50 whitespace-nowrap"
+      >
+        กลับหน้าแรก
+      </a>
+      <a
+        routerLink="/asset/new"
+      class="rounded-lg bg-slate-800 px-4 py-2 text-sm text-white whitespace-nowrap"
+      >
+        เพิ่มรายการ
+      </a>
+    </div>
+  </div>
+
+  <div class="mb-4 flex flex-col gap-3 md:flex-row md:items-center">
+    <input
+      type="text"
+      class="w-full md:w-48 rounded-lg border border-slate-300 bg-white px-3 py-2 text-sm"
+      placeholder="กรอกรหัสทรัพย์สิน"
+    />
+    <select
+      class="w-full md:w-56 rounded-lg border border-slate-300 bg-white px-3 py-2 text-sm"
+    >
+      <option value="">เลือกประเภททรัพย์สิน</option>
+      <option value="laptop">laptop</option>
+      <option value="mobile phone">mobile phone</option>
+      <option value="mac mini">mac mini</option>
+      <option value="macbook">macbook</option>
+    </select>
+    <div class="flex w-full md:flex-1 gap-2">
+      <button class="rounded-lg bg-slate-800 px-4 py-2 text-sm text-white">ค้นหา</button>
+    </div>
+  </div>
+
+  <div class="border rounded overflow-hidden">
+    <div class="p-3 border-b font-medium bg-slate-50">รายการทรัพย์สิน</div>
+    <div class="overflow-x-auto sm:overflow-x-hidden">
+      <table class="w-full text-xs sm:text-sm border-separate border-spacing-0 min-w-[1200px] sm:min-w-0">
+        <thead class="bg-slate-50 text-slate-700">
+          <tr class="border-b">
+            <th class="px-3 py-2 text-left w-16 border-r border-slate-300 whitespace-nowrap">ลำดับ</th>
+            <th class="px-3 py-2 text-left w-32 border-r border-slate-300 whitespace-nowrap">รหัสทรัพย์สิน</th>
+            <th class="px-3 py-2 text-left w-40 border-r border-slate-300 whitespace-nowrap">ประเภททรัพย์สิน</th>
+            <th class="px-3 py-2 text-left w-40 border-r border-slate-300 whitespace-nowrap">ชื่อทรัพย์สิน</th>
+            <th class="px-3 py-2 text-left w-32 border-r border-slate-300 whitespace-nowrap">ยี่ห้อ</th>
+            <th class="px-3 py-2 text-left w-32 border-r border-slate-300 whitespace-nowrap">รุ่น</th>
+            <th class="px-3 py-2 text-left w-24 border-r border-slate-300 whitespace-nowrap">สี</th>
+            <th class="px-3 py-2 text-left w-40 border-r border-slate-300 whitespace-nowrap">อุปกรณ์เสริม</th>
+            <th class="px-3 py-2 text-left w-28 border-r border-slate-300 whitespace-nowrap">สถานะ</th>
+            <th class="px-3 py-2 text-left w-40 border-r border-slate-300 whitespace-nowrap">ตำหนิ</th>
+            <th class="px-3 py-2 text-left w-32 whitespace-nowrap">จัดการ</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr class="border-b">
+            <td class="px-3 py-2 text-slate-500 border-r border-slate-300">—</td>
+            <td class="px-3 py-2 text-slate-500 border-r border-slate-300">—</td>
+            <td class="px-3 py-2 text-slate-500 border-r border-slate-300">ยังไม่มีข้อมูล</td>
+            <td class="px-3 py-2 text-slate-500 border-r border-slate-300">—</td>
+            <td class="px-3 py-2 text-slate-500 border-r border-slate-300">—</td>
+            <td class="px-3 py-2 text-slate-500 border-r border-slate-300">—</td>
+            <td class="px-3 py-2 text-slate-500 border-r border-slate-300">—</td>
+            <td class="px-3 py-2 text-slate-500 border-r border-slate-300">—</td>
+            <td class="px-3 py-2 text-slate-500 border-r border-slate-300">—</td>
+            <td class="px-3 py-2 text-slate-500 border-r border-slate-300">—</td>
+            <td class="px-3 py-2">
+              <div class="flex gap-2">
+                <button
+                  type="button"
+                  (click)="goEdit(1)"
+                  class="rounded bg-slate-200 px-3 py-1.5 text-xs text-slate-700 hover:bg-slate-300"
+                >
+                  แก้ไข
+                </button>
+                <button class="rounded bg-red-100 px-3 py-1.5 text-xs text-red-700 hover:bg-red-200">ลบ</button>
+              </div>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

@@ -1,11 +1,50 @@
-<h1 class="text-2xl font-semibold mb-4">รายการตรวจเช็คทรัพย์สิน</h1>
-
-<div class="mb-3 flex gap-2">
-  <input class="border rounded px-3 py-2 w-full" placeholder="ค้นหา (ชื่อทรัพย์สิน/คนดูแล)" />
-  <button class="px-4 py-2 rounded bg-slate-800 text-white">ค้นหา</button>
+<div class="mb-4 flex items-center justify-between">
+  <h1 class="text-lg sm:text-2xl font-semibold whitespace-nowrap">รายการตรวจเช็คทรัพย์สิน</h1>
+  <a
+    routerLink="/check/new"
+    class="inline-flex items-center rounded-xl border border-slate-300 px-3 py-1.5 text-sm text-slate-700 hover:bg-slate-50 whitespace-nowrap"
+  >
+    กลับหน้าตรวจเช็ค
+  </a>
 </div>
 
-<div class="border rounded">
-  <div class="p-3 border-b font-medium bg-slate-50">ตัวอย่างข้อมูล</div>
-  <div class="p-3">ยังไม่ได้เชื่อม Google Sheet</div>
+  <div class="border rounded overflow-hidden">
+    <div class="p-3 border-b font-medium bg-slate-50">รายการตรวจเช็ค</div>
+    <div class="overflow-x-auto sm:overflow-x-hidden">
+    <table class="w-full text-xs sm:text-sm border-separate border-spacing-0 min-w-[1100px] sm:min-w-0">
+      <thead class="bg-slate-50 text-slate-700">
+        <tr class="border-b">
+          <th class="px-3 py-2 text-left w-16 border-r border-slate-400 whitespace-nowrap">ลำดับ</th>
+          <th class="px-3 py-2 text-left border-r border-slate-400 whitespace-nowrap">รหัสทรัพย์สิน</th>
+          <th class="px-3 py-2 text-left w-32 border-r border-slate-400 whitespace-nowrap">วันที่บันทึก</th>
+          <th class="px-3 py-2 text-left w-32 border-r border-slate-400 whitespace-nowrap">วันที่ขอยืม</th>
+          <th class="px-3 py-2 text-left w-32 border-r border-slate-400 whitespace-nowrap">วันที่สิ้นสุด</th>
+          <th class="px-3 py-2 text-left w-32 border-r border-slate-400 whitespace-nowrap">สถานะ</th>
+          <th class="px-3 py-2 text-left w-40 border-r border-slate-400 whitespace-nowrap">ผู้ขอยืม</th>
+          <th class="px-3 py-2 text-left w-32 border-r border-slate-400 whitespace-nowrap">ผู้อนุมัติ</th>
+          <th class="px-3 py-2 text-left w-28 whitespace-nowrap">รายละเอียด</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr class="border-b">
+          <td class="px-3 py-2 text-slate-500 border-r border-slate-400">—</td>
+          <td class="px-3 py-2 text-slate-500 border-r border-slate-400">—</td>
+          <td class="px-3 py-2 text-slate-500 border-r border-slate-400">—</td>
+          <td class="px-3 py-2 text-slate-500 border-r border-slate-400">—</td>
+          <td class="px-3 py-2 text-slate-500 border-r border-slate-400">—</td>
+          <td class="px-3 py-2 text-slate-500 border-r border-slate-400">—</td>
+          <td class="px-3 py-2 text-slate-500 border-r border-slate-400">—</td>
+          <td class="px-3 py-2 text-slate-500 border-r border-slate-400">—</td>
+          <td class="px-3 py-2">
+            <a
+              routerLink="/check/detail/1"
+              class="inline-flex items-center justify-center rounded bg-slate-200 px-3 py-1.5 text-slate-700 hover:bg-slate-300"
+            >
+              Detail
+            </a>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
 </div>
